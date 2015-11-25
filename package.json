@@ -54,7 +54,8 @@
     "serve-static": "^1.10.0",
     "thirty-two": "1.0.1",
     "underscore": "^1.8.3",
-    "useragent": "^2.1.7"
+    "useragent": "^2.1.7",
+    "winchan": "^0.1.2"
   },
   "devDependencies": {
     "grunt": "^0.4.5",

@@ -101,13 +101,9 @@ module.exports = function(grunt) {
         }]
       },
       cdn: {
-        files: [{
-          expand: true,
-          cwd: 'components/remote/client/cdn/',
-          src: ['**/*.js', '!**/*.min.js'],
-          dest: 'public/cdn/',
-          ext: '.min.js'
-        }]
+        files: {
+          'public/cdn/people.min.js': ['node_modules/winchan/winchan.js', 'components/remote/client/cdn/people.js']
+        }
       }
     },
     jshint: {
