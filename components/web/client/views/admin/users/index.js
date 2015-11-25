@@ -55,7 +55,8 @@
     events: {
       'submit form': 'preventSubmit',
       'keypress input[type="text"]': 'addNewOnEnter',
-      'click .btn-add': 'addNew'
+      'click .btn-add': 'addNew',
+      'click .btn-export': 'export'
     },
     initialize: function() {
       this.model = new app.Record();
@@ -96,6 +97,9 @@
           }
         });
       }
+    },
+    export: function() {
+      $.fileDownload('csv/');
     }
   });
 

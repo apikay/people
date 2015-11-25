@@ -3,7 +3,7 @@
 exports = module.exports = function (app, mongoose) {
   var userSchema = new mongoose.Schema({
     username: {type: String, unique: true},
-    password: String,
+    password: { type: String },
     email: {type: String, unique: true},
     roles: [{type: String, ref: 'Role'}],
     fields: {type: mongoose.Schema.Types.Mixed, ref: 'Field'},
@@ -14,11 +14,11 @@ exports = module.exports = function (app, mongoose) {
     statusLog: [mongoose.modelSchemas.StatusLog],
     notes: [mongoose.modelSchemas.Note],
     mode: String,
-    isVerified: {type: String, default: ''},
-    verificationToken: {type: String, default: ''},
-    timeCreated: {type: Date, default: Date.now},
-    resetPasswordToken: String,
-    resetPasswordExpires: Date,
+    isVerified: {type: String, default: '', csv : false},
+    verificationToken: {type: String, default: '', csv : false},
+    timeCreated: {type: Date, default: Date.now, csv : false},
+    resetPasswordToken: { type: String, csv : false },
+    resetPasswordExpires: { type:Date, csv : false },
     totp: Buffer, //{type: mongoose.Schema.Types.Mixed}
     twitter: {},
     github: {},
@@ -81,6 +81,7 @@ exports = module.exports = function (app, mongoose) {
     return false;
   };
   userSchema.plugin(require('./plugins/pagedFind'));
+  userSchema.plugin(require('mongoose-csv'));
   userSchema.index({username: 1}, {unique: true});
   userSchema.index({email: 1}, {unique: true});
   userSchema.index({timeCreated: 1});
