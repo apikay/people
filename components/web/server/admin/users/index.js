@@ -526,11 +526,3 @@ exports.delete = function (req, res, next) {
 
   workflow.emit('validate');
 };
-
-exports.csv = function(req, res, next) {
-  res.writeHead(200, {
-    'Content-Type': 'text/csv',
-    'Content-Disposition': 'attachment; filename=users.csv'
-  });
-  req.app.db.models.User.find().csv(res);
-};

@@ -1,4 +1,4 @@
-/* global app:true */
+///* global app:true */
 
 (function() {
   'use strict';
@@ -11,7 +11,7 @@
       success: false,
       errors: [],
       errfor: {},
-      email: '',
+      email: ''
     }
   });
 

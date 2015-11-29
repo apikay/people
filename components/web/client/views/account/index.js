@@ -1,4 +1,4 @@
-/* global app:true */
+///* global app:true */
 
 (function () {
   'use strict';
@@ -127,17 +127,15 @@
     },
     render: function () {
       this.$el.html(this.template(this.model.attributes));
+      var _self = this;
 
-      for (var key in this.model.attributes) {
-        if (this.model.attributes.hasOwnProperty(key)) {
-          this.$el.find('[name="' + key + '"]').val(this.model.attributes[key]);
-        }
-      }
-      for (var key in this.model.attributes.fields) {
-        if (this.model.attributes.fields.hasOwnProperty(key)) {
-          this.$el.find('[name="' + key + '"]').val(this.model.attributes.fields[key]);
-        }
-      }
+      _.each(this.model.attributes, function(val, key) {
+        _self.$el.find('[name="' + key + '"]').val(val);
+      });
+
+      _.each(this.model.attributes.fields, function(val, key) {
+        _self.$el.find('[name="' + key + '"]').val(val);
+      });
     },
     update: function () {
       var toSave = {};
@@ -259,7 +257,7 @@
       for (var i = 0; i < 16; i++) {
         key += s.charAt(Math.floor(Math.random() * s.length));
       }
-      var qrUrl = 'otpauth://totp/' + encodeURIComponent(this.model.appName) + '?secret=' + key + '&issuer=People'
+      var qrUrl = 'otpauth://totp/' + encodeURIComponent(this.model.appName) + '?secret=' + key + '&issuer=People';
       this.$el.append(this.template({key: key, qrUrl: qrUrl}));
       this.$el.find('#twostep-block').show();
     },
@@ -274,10 +272,10 @@
         }
       }
     },
-    twostepClose: function(e) {
+    twostepClose: function() {//e
       this.$el.find('#twostep-block').hide();
     },
-    twostepSubmit: function (e) {
+    twostepSubmit: function () {//e
       var code = document.querySelector('#twostep-block input');
       if (code.value.length !== 6) {
         return alert('A 6-digit code is required.');

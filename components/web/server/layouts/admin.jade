@@ -7,7 +7,7 @@ html
         link(rel='stylesheet', href='/layouts/core.min.css?#{cacheBreaker}')
         link(rel='stylesheet', href='/layouts/admin.min.css?#{cacheBreaker}')
         link(rel='stylesheet', href='/vendor/font-awesome/css/font-awesome.min.css?#{cacheBreaker}')
-        link(rel='stylesheet', href='/icons/style.css?#{cacheBreaker}')
+        //link(rel='stylesheet', href='/icons/style.css?#{cacheBreaker}')
         block neck
     body
 
@@ -20,13 +20,13 @@ html
 
         ul.admin-menu
             div.admin-menu-header Admin Menu
-            li: a.icon-users(href='/admin/users/') Users
-            li: a.icon-key(href='/admin/roles/') Roles
-            li: a.icon-database(href='/admin/fields/') Fields
-            li: a.icon-bubble(href='/admin/statuses/') Statuses
-            li: a.icon-hammer2(href='/admin/rules/') Rules
-            li: a.icon-equalizer(href='/admin/settings/') Settings
-            li: a.icon-envelop(href='/admin/emails/') Emails
+            li: a.fa.fa-users(href='/admin/users/') Users
+            li: a.fa.fa-key(href='/admin/roles/') Roles
+            li: a.fa.fa-database(href='/admin/fields/') Fields
+            li: a.fa.fa-comment(href='/admin/statuses/') Statuses
+            li: a.fa.fa-legal(href='/admin/rules/') Rules
+            li: a.fa.fa-sliders(href='/admin/settings/') Settings
+            li: a.fa.fa-envelope-o(href='/admin/emails/') Emails
 
         div.page
             div.container

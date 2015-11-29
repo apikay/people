@@ -89,15 +89,20 @@ exports.update = function (req, res, next) {
 
   workflow.on('patchTmpl', function () {
     workflow.outcome.emails = {};
+
+    var writeFile = function(file, data, key) {
+      fs.writeFile(file, data, function (err) {
+        if (err) {
+          return workflow.emit('exception', err);
+        }
+
+        workflow.outcome.emails[key] = req.body[key];
+      });
+    };
+
     for (var key in tmpls) {
       if (tmpls.hasOwnProperty(key)) {
-        fs.writeFile(tmpls[key], req.body[key], function (err) {
-          if (err) {
-            return workflow.emit('exception', err);
-          }
-
-          workflow.outcome.emails[key] = req.body[key];
-        });
+        writeFile(tmpls[key], req.body[key], key);
       }
     }
 

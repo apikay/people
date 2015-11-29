@@ -1,4 +1,4 @@
-/* global app:true */
+///* global app:true */
 
 (function() {
   'use strict';
@@ -99,7 +99,7 @@
       }
     },
     export: function() {
-      $.fileDownload('csv/');
+      $.fileDownload('../csv/users');
     }
   });
 

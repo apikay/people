@@ -1,6 +1,6 @@
 'use strict';
 
-var jwt = require('jsonwebtoken');
+//var jwt = require('jsonwebtoken');
 
 exports.init = function (req, res) {
   res.render('web/server/login/twostep/index');

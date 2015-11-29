@@ -1,4 +1,4 @@
-/* global app:true */
+///* global app:true */
 
 (function() {
   'use strict';
@@ -178,16 +178,15 @@
     render: function() {
       this.$el.html(this.template( this.model.attributes ));
 
-      for (var key in this.model.attributes) {
-        if (this.model.attributes.hasOwnProperty(key)) {
-          this.$el.find('[name="'+ key +'"]').val(this.model.attributes[key]);
-        }
-      }
-      for (var key in this.model.attributes.fields) {
-        if (this.model.attributes.fields.hasOwnProperty(key)) {
-          this.$el.find('[name="'+ key +'"]').val(this.model.attributes.fields[key]);
-        }
-      }
+      var _self = this;
+
+      _.each(this.model.attributes, function(val, key) {
+        _self.$el.find('[name="' + key + '"]').val(val);
+      });
+
+      _.each(this.model.attributes.fields, function(val, key) {
+        _self.$el.find('[name="' + key + '"]').val(val);
+      });
     },
     update: function() {
       var toSave = {};

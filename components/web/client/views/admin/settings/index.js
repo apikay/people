@@ -1,4 +1,4 @@
-/* global app:true */
+///* global app:true */
 
 (function() {
   'use strict';
@@ -94,7 +94,7 @@
       }
 
       this.$el.find('[type="checkbox"]').each(function(i, el) {
-        el.checked = (el.value === "1") ? true : false;
+        el.checked = (el.value === "1");
       });
     },
     update: function() {

@@ -70,10 +70,11 @@ exports = module.exports = function (app, passport) {
   app.all('/admin*', ensureAdmin);
   app.get('/admin/', require('./admin/index').init);
 
+  app.get('/admin/csv/:type', require('./admin/csv/index').csv);
+
   // Admin > Users.
   app.get('/admin/users/', require('./admin/users/index').find);
   app.post('/admin/users/', require('./admin/users/index').create);
-  app.get('/admin/users/csv/', require('./admin/users/index').csv);
   app.get('/admin/users/:id/', require('./admin/users/index').read);
   app.put('/admin/users/:id/', require('./admin/users/index').update);
   app.put('/admin/users/:id/password/', require('./admin/users/index').password);

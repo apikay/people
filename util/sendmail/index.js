@@ -72,7 +72,7 @@ exports = module.exports = function (req, res, options) {
       html = html.split('<img ').join('<img style="margin: 0 auto; display: block;" ');
 
       options.html = '';
-      options.html += '<table cellpadding="0" cellspacing="0" border="0" align="center"border-collapse:collapse"><tbody><tr><td width="600" valign="top" style="border-collapse:collapse;padding-top:0px;padding-bottom:10px">';
+      options.html += '<table cellpadding="0" cellspacing="0" border="0" align="center" style="border-collapse:collapse"><tbody><tr><td width="600" valign="top" style="border-collapse:collapse;padding-top:0;padding-bottom:10px">';
       options.html += html;
       options.html += '</td></tr></tbody></table>';
 
@@ -140,11 +140,11 @@ exports = module.exports = function (req, res, options) {
       transporter.sendMail(mailOptions, function (err, message) {
         if (err) {
           options.error('Email failed to send. ' + err);
-          return;
+          //return;
         }
         else {
           options.success(message);
-          return;
+          //return;
         }
       });
     }

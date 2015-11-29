@@ -1,4 +1,4 @@
-/* global app:true */
+/* global $:true */
 
 (function() {
   'use strict';

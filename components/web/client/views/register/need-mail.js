@@ -46,6 +46,7 @@
       },{
         success: function(model, response) {
           if (response.success) {
+            // jshint noempty:false
             //window.location.href = '/';
           }
           else {

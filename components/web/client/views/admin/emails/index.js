@@ -1,4 +1,5 @@
-/* global app:true */
+///* global app:true */
+/* global CodeMirror:true */
 
 (function () {
   'use strict';

@@ -82,7 +82,7 @@ module.exports = function(grunt) {
             'node_modules/underscore/underscore.js',
             'node_modules/backbone/backbone.js',
             'node_modules/bootstrap/js/bootstrap.js',
-            'node_modules/momentjs/moment.js',
+            'node_modules/moment/moment.js',
             'components/web/client/layouts/core.js'
           ],
           'public/layouts/ie-sucks.min.js': [
@@ -129,7 +129,9 @@ module.exports = function(grunt) {
         },
         src: [
           'schema/**/*.js',
-          'components/**/*.js'
+          'components/**/*.js',
+          '!components/web/client/**/*.js',
+          '!components/remote/client/**/*.js'
         ]
       }
     },
